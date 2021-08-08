@@ -1,13 +1,36 @@
 let input = document.getElementById("item-input");
 let button = document.getElementById("item-button");
 let ul = document.getElementById("items");
+let items = document.getElementsByTagName("li");
+let itemButtons = document.getElementsByClassName("remover");
 
-function CriarElemento(event){
+function CriarElemento(){
   let li = document.createElement("li");
-  li.innerHTML = input.value;
+  let xButton = document.createElement("button");
+  xButton.innerHTML = "X";
+  xButton.className = "remover";
+
+
+  li.appendChild(xButton);
+  
+  let text = document.createTextNode(" " + input.value);
+  li.appendChild(text);
   ul.appendChild(li);
 
+
   input.value ="";
+  buttonEvents();
 }
 
-button.addEventListener("click",CriarElemento)
+function deletarItem(){
+    this.parentElement.remove();
+}
+
+function buttonEvents(){
+  for (let i = 0; i < items.length; i++){
+    itemButtons[i].addEventListener("click", deletarItem);
+  }
+}
+
+
+button.addEventListener("click", CriarElemento);
