@@ -1,4 +1,4 @@
-# Lista-de-Compras-4.0
+# Lista-de-Compras
 Um projeto de Lista de Compras.
 
 # Porque criar isso?
